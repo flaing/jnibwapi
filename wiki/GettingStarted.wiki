@@ -1,0 +1,38 @@
+#summary This page will give you a more detailed overview of getting started with JNIBWAPI *WORK IN PROGRESS*
+
+= Introduction =
+
+JNIBWAPI assumes you have the following components :
+
+  * Starcraft (v. 1.16.1)
+  * Windows (Mac is unsupported)
+  * Visual Studio Express 2008 (VS 2010, VS Pro 2008 will both require extra work recompiling) (This is *NOT REQUIRED* if you do not intend to work with the C++ code)
+  * Java 1.6 32bit (64bit JRE will require recompiling the C++ code for this different environment)
+  * BWAPI 3.6 ([http://code.google.com/p/bwapi/ available here])
+  * Chaoslauncher (Several hack loaders for Starcraft are compatible, but Chaoslauncher is most widely used and the "supported" version) ([http://winner.cspsx.de/Starcraft/Tool/Chaoslauncher.zip available here])
+  * JNIBWAPI 0.2 ([http://code.google.com/p/jnibwapi/downloads/detail?name=jni-bwapi-0.2.zip&can=2&q= available here])
+
+The BWAPI installation guide is aimed predominantly at those intending to compile directly from the C++ source of BWAPI. It is possible to skip some of these steps if you don't intend to do this. This guide will assume that you will be developing solely in Java - follow the BWAPI guide if this is not the case.
+
+
+= Details =
+
+  # Install Starcraft and Brood Wars expansion
+  # Update to latest version (1.16.1)
+  # Doanload Chaoslauncher
+  # Download BWAPI 3.6, extract files from zip.
+  # Either follow the BWAPI Instructions steps as in README in the BWAPI 3.6 files (skip to step 9) OR
+  # Copy contents of Chaoslauncher/ from the extracted files to your Chaos Launcher folder
+  # Copy contents of Starcraft/ to your actual Starcraft folder
+  # Copy contents of WINDOWS/ to your Windows folder (c:\Windows for example)
+  # If you do not have Visual Studio 2008 installed, you must install vcredist_x86.exe (included in the BWAPI files)
+  # In <Starcraft dir>/bwapi-data edit bwapi.ini and change line 8 ("ai     = bwapi-data\AI\ExampleAIModule.dll, bwapi-data\AI\TestAIModule.dll")) to read "ai     = NULL". Remove line 9.
+  # Extract JNIBWAPI files.
+  # Open a command line (as an Administrator if applicable - note that this can be done using ctrl-shift-enter from the run dialog)
+  # Move to the JNIBWAPI directory, enter the release/ directory and launch "run.bat"
+    * Expected output "Bridge: BWAPI Cliet launched!!" "Bridge: Connecting..."
+  # Start Chaoslauncher (as an Administrator from the right-click menu if applicable), activate the BWAPI RELEASE plugin. Activate other plugins as required.
+  # Start the Starcraft game
+    * Expected output "Bridge: waiting to enter match"
+  # Begin a local multiplayer match as Zerg (the race the example AI is designed to play)
+  # The JNIBWAPI player should take control of the player's units and begin ordering units.
