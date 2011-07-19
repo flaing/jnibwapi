@@ -1,4 +1,4 @@
-#summary This page will give you a more detailed overview of getting started with JNIBWAPI *WORK IN PROGRESS*
+#summary This page will give you a more detailed overview of getting started with JNIBWAPI
 
 = Introduction =
 
