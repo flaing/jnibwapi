@@ -46,7 +46,7 @@ _Assuming that you have followed the previous guide, you should have an extracte
   # If you don't plan on working with the C++ side, you can delete `src/c`
   # Open Eclipse, select New Java Project
     * Eclipse Galileo - Select to create a project from existing source, point the dialog at the JNIBWAPI main folder and it should be able to determine the rest for itself. Click Finish
-    * Eclipse Imdigo - Uncheck "Use default location" and set the location to be your JNIBWAPI folder. Click Finish.
+    * Eclipse Indigo - Uncheck "Use default location" and set the location to be your JNIBWAPI folder. Click Finish.
   # Expand the project and look in the package `eisbot.proxy`. Right click `ExampleAIClient.java`, select Rus As, then select Java application.
   # Ensure that the behaviour is as in the previous guide (you have just complete the equivalent of Step 13)
   # You are now ready to duplicate `ExampleAIClient.java` to your own class and begin development.
