@@ -15,7 +15,7 @@ JNIBWAPI assumes you have the following components :
 The BWAPI installation guide is aimed predominantly at those intending to compile directly from the C++ source of BWAPI. It is possible to skip some of these steps if you don't intend to do this. This guide will assume that you will be developing solely in Java - follow the BWAPI guide if this is not the case.
 
 
-= Details =
+= Setting Up JNIBWAPI =
 
   # Install Starcraft and Brood Wars expansion
   # Update to latest version (1.16.1)
@@ -36,3 +36,19 @@ The BWAPI installation guide is aimed predominantly at those intending to compil
     * Expected output "Bridge: waiting to enter match"
   # Begin a local multiplayer match as Zerg (the race the example AI is designed to play)
   # The JNIBWAPI player should take control of the player's units and begin ordering units.
+
+= Your First JNIBWAPI Project =
+
+_Assuming that you have followed the previous guide, you should have an extracted copy of JNIBWAPI 0.2_
+
+  # Move to your JNIBWAPI directory, copy `ExampleAIClient.dll` from `release/` into the top level directory
+  # Move `src/java/eisbot/` into the `src/` folder, delete the `java` folder
+  # If you don't plan on working with the C++ side, you can delete `src/c`
+  # Open Eclipse, select New Java Project
+    * Eclipse Galileo - Select to create a project from existing source, point the dialog at the JNIBWAPI main folder and it should be able to determine the rest for itself. Click Finish
+    * Eclipse Imdigo - Uncheck "Use default location" and set the location to be your JNIBWAPI folder. Click Finish.
+  # Expand the project and look in the package `eisbot.proxy`. Right click `ExampleAIClient.java`, select Rus As, then select Java application.
+  # Ensure that the behaviour is as in the previous guide (you have just complete the equivalent of Step 13)
+  # You are now ready to duplicate `ExampleAIClient.java` to your own class and being development.
+
+_Note that when using the provided .dll, certain files need to remain in the expected location. In particular `BWAPIEventListener.java` and `JNIBWAPI.java` should be left in the `eisbot.proxy` package. The core of your AI (equivalent to `ExampleAIClient.java` can be in an alternative package._
