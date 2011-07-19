@@ -49,6 +49,6 @@ _Assuming that you have followed the previous guide, you should have an extracte
     * Eclipse Imdigo - Uncheck "Use default location" and set the location to be your JNIBWAPI folder. Click Finish.
   # Expand the project and look in the package `eisbot.proxy`. Right click `ExampleAIClient.java`, select Rus As, then select Java application.
   # Ensure that the behaviour is as in the previous guide (you have just complete the equivalent of Step 13)
-  # You are now ready to duplicate `ExampleAIClient.java` to your own class and being development.
+  # You are now ready to duplicate `ExampleAIClient.java` to your own class and begin development.
 
 _Note that when using the provided .dll, certain files need to remain in the expected location. In particular `BWAPIEventListener.java` and `JNIBWAPI.java` should be left in the `eisbot.proxy` package. The core of your AI (equivalent to `ExampleAIClient.java` can be in an alternative package._
