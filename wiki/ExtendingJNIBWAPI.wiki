@@ -14,7 +14,7 @@ You can obtain v0.2 of JNIBWAPI from the downloads page, and v3.6 of BWAPI from 
 
 To begin with, we need to add the new method so that we can call it from our agent written in java. Open JNIBWAPI.java in your favourite editor, and add the following line (I suggest in a new section near the declarations where you will put all of your new functions together).
 
-'public native void printText(String text);'
+`public native void printText(String text);`
 
 Recompile your JNIBWAPI project.
 
