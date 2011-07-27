@@ -39,7 +39,7 @@ First, we need to add the new header file that we generated to the project (Solu
 Secondly, we're going to need to add the JNI header files from the JDK to our include path so that our project can include them.
 (Solution Explorer->ExampleAIClient->Properties->C/C++->Additional Include Directories). You need to add your java/jdk1.6.0_26/include and java/jdk1.6.0_26/include/win32 folders to this list of directories.
 
-Finally, we want to make sure that our ExampleAIClient project exports a dynamic library (.dll), not an executable (.exe). You can set this in (Solution Explorer->General->Configuration Type).
+Finally, we want to make sure that our ExampleAIClient project exports a dynamic library (.dll), not an executable (.exe). You can set this in (Solution Explorer->Properties->Configuration Properties->General->Configuration Type).
 
 Open up eisbot_proxy_JNIBWAPI.h and have a look at the interface declarations. We're interested in the one that we just added to the interface (printText). It should look like this:
 
