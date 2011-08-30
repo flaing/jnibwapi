@@ -31,6 +31,7 @@ The BWAPI installation guide is aimed predominantly at those intending to compil
   # Open a command line (as an Administrator if applicable - note that this can be done using ctrl-shift-enter from the run dialog)
   # Move to the JNIBWAPI directory, enter the release/ directory and launch "run.bat"
     * Expected output "Bridge: BWAPI Cliet launched!!" "Bridge: Connecting..."
+    * _Note that an error in JNIBWAPI 0.2 will cause this process to fail, upgrade to JNIBWAPI 0.2.1 which has a recompiled version of the JAR._
   # Start Chaoslauncher (as an Administrator from the right-click menu if applicable), activate the BWAPI RELEASE plugin. Activate other plugins as required.
   # Start the Starcraft game
     * Expected output "Bridge: waiting to enter match"
