@@ -6,50 +6,44 @@ JNIBWAPI assumes you have the following components :
 
   * Starcraft (v. 1.16.1)
   * Windows (Mac is unsupported)
-  * Visual Studio Express 2008 (VS 2010, VS Pro 2008 will both require extra work recompiling) (This is *NOT REQUIRED* if you do not intend to work with the C++ code)
-  * Java 1.6 32bit (64bit JRE will require recompiling the C++ code for this different environment)
-  * BWAPI 3.6 ([http://code.google.com/p/bwapi/ available here])
+  * Visual Studio 2008 (the dll requires Platform Toolset v90) - this is *not required* if you do not intend to work with the C++ code
+  * Java 1.7 (32-bit recommended)
+  * BWAPI 3.7 ([http://code.google.com/p/bwapi/ available here])
   * Chaoslauncher (Several hack loaders for Starcraft are compatible, but Chaoslauncher is most widely used and the "supported" version) ([http://winner.cspsx.de/Starcraft/Tool/Chaoslauncher.zip available here])
-  * JNIBWAPI 0.2 ([http://code.google.com/p/jnibwapi/downloads/detail?name=jni-bwapi-0.2.zip&can=2&q= available here])
+  * JNIBWAPI 0.3 ([http://code.google.com/p/jnibwapi/downloads/ available here])
 
 The BWAPI installation guide is aimed predominantly at those intending to compile directly from the C++ source of BWAPI. It is possible to skip some of these steps if you don't intend to do this. This guide will assume that you will be developing solely in Java - follow the BWAPI guide if this is not the case.
 
 
 = Setting Up JNIBWAPI =
 
-  # Install Starcraft and Brood Wars expansion
+  # Install Starcraft and Brood War expansion
   # Update to latest version (1.16.1)
-  # Doanload Chaoslauncher
-  # Download BWAPI 3.6, extract files from zip.
-  # Either follow the BWAPI Instructions steps as in README in the BWAPI 3.6 files (skip to step 9) OR
-  # Copy contents of Chaoslauncher/ from the extracted files to your Chaos Launcher folder
-  # Copy contents of Starcraft/ to your actual Starcraft folder
-  # Copy contents of WINDOWS/ to your Windows folder (c:\Windows for example)
-  # If you do not have Visual Studio 2008 installed, you must install vcredist_x86.exe (included in the BWAPI files)
-  # In <Starcraft dir>/bwapi-data edit bwapi.ini and change line 8 ("ai     = bwapi-data\AI\ExampleAIModule.dll, bwapi-data\AI\TestAIModule.dll")) to read "ai     = NULL". Remove line 9.
+  # Download Chaoslauncher
+  # Download BWAPI 3.7, extract files from zip
+  # Follow the BWAPI Build Instruction steps in README in the BWAPI 3.7 files
+    * Note: If you do not have Visual Studio 2008 installed, you must install `vcredist_x86.exe` (included in the BWAPI files)
+  # Edit `<Starcraft dir>/bwapi-data/bwapi.ini` - change line 8 "`ai     = bwapi-data\AI\ExampleAIModule.dll, bwapi-data\AI\TestAIModule.dll`" to read "`ai     = NULL`". Remove line 9.
   # Extract JNIBWAPI files.
-  # Open a command line (as an Administrator if applicable - note that this can be done using ctrl-shift-enter from the run dialog)
-  # Move to the JNIBWAPI directory, enter the release/ directory and launch "run.bat"
-    * Expected output "Bridge: BWAPI Cliet launched!!" "Bridge: Connecting..."
-    * _Note that an error in JNIBWAPI 0.2 will cause this process to fail, upgrade to JNIBWAPI 0.2.1 which has a recompiled version of the JAR._
-  # Start Chaoslauncher (as an Administrator from the right-click menu if applicable), activate the BWAPI RELEASE plugin. Activate other plugins as required.
+  # In the `release` directory of JNIBWAPI, right-click "run.bat" and select Run as Administrator
+    * Expected output "Loaded client bridge library." "Bridge: BWAPI Client launched!" "Bridge: Connecting..."
+  # Start Chaoslauncher as an Administrator and activate the BWAPI Release plugin
   # Start the Starcraft game
-    * Expected output "Bridge: waiting to enter match"
-  # Begin a local multiplayer match as Zerg (the race the example AI is designed to play)
-  # The JNIBWAPI player should take control of the player's units and begin ordering units.
+    * Expected output "Connected" "Bridge: waiting to enter match..."
+  # Begin a custom game as Zerg (the race the example AI is designed to play)
+  # The JNIBWAPI player should take control of the player's units and begin ordering units
+    * Note: the game will freeze for up to a minute the first time a new map is played as BWTA has to analyze the map
 
 = Your First JNIBWAPI Project =
 
-_Assuming that you have followed the previous guide, you should have an extracted copy of JNIBWAPI 0.2_
+_Assuming that you have followed the previous guide, you should have an extracted copy of JNIBWAPI 0.3_
 
-  # Move to your JNIBWAPI directory, copy `ExampleAIClient.dll` from `release/` into the top level directory
-  # Move `src/java/eisbot/` into the `src/` folder, delete the `java` folder
-  # If you don't plan on working with the C++ side, you can delete `src/c`
-  # Open Eclipse, select New Java Project
-    * Eclipse Galileo - Select to create a project from existing source, point the dialog at the JNIBWAPI main folder and it should be able to determine the rest for itself. Click Finish
-    * Eclipse Indigo - Uncheck "Use default location" and set the location to be your JNIBWAPI folder. Click Finish.
-  # Expand the project and look in the package `eisbot.proxy`. Right click `ExampleAIClient.java`, select Rus As, then select Java application.
-  # Ensure that the behaviour is as in the previous guide (you have just complete the equivalent of Step 13)
+  # In your JNIBWAPI directory, copy `client-bridge-x86.dll` from `release/` into the top level directory
+    * Alternatively, you can change the Working Directory of any run configurations you create (eg. in step 4), to the `release` directory
+  # If you don't plan on working with the C++ side, you can delete `src/c` and move `src/java/jnibwapi` to `src/jnibwapi` and delete the `java` folder
+  # Run Eclipse as an Administrator, create a New Java Project, uncheck "Use default location" and set the location to be your JNIBWAPI folder. It should be able to determine the rest for itself. Click Finish.
+  # Expand the project and look in the package `jnibwapi`. Right click `ExampleAIClient.java`, select Run As, then select Java application.
+  # Ensure that the behaviour is as in the previous guide (you have just completed the equivalent of Step 8)
   # You are now ready to duplicate `ExampleAIClient.java` to your own class and begin development.
 
-_Note that when using the provided .dll, certain files need to remain in the expected location. In particular `BWAPIEventListener.java` and `JNIBWAPI.java` should be left in the `eisbot.proxy` package. The core of your AI (equivalent to `ExampleAIClient.java` can be in an alternative package._
+Note that when using the provided .dll, certain files need to remain in the expected location. In particular `BWAPIEventListener.java` and `JNIBWAPI.java` should be left in the `jnibwapi` package. The core of your AI (equivalent to `ExampleAIClient.java`) can be in an alternative package.
