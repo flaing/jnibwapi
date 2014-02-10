@@ -1,0 +1,12 @@
+#summary Documentation (link) for JNIBWAPI.
+#labels Featured
+
+=Documentation=
+
+JNIBWAPI aims to closely mimic the API of [https://code.google.com/p/bwapi/ BWAPI] (version 3.7.4).
+
+Therefore, *the best place to look for documentation* is in the *[https://code.google.com/p/bwapi/wiki/OldDocumentation BWAPI documentation]*.
+
+If anything in JNIBWAPI does not work as expected according to the BWAPI documentation, please file a bug report on the issues page.
+
+Note: JNIBWAPI currently makes heavy use of IDs where objects are used in BWAPI. This should be remedied soon.
