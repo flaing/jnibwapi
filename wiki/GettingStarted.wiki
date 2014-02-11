@@ -3,11 +3,13 @@
 
 = Introduction =
 
+The best way to get started with JNIBWAPI is to first browse the information available at the [https://code.google.com/p/bwapi/ BWAPI] project (note that the documentation relevant to JNIBWAPI is listed as "Old Documentation"). JNIBWAPI works as a BWAPI "AI Client", with the C++ code in `src/c` acting as a binding between the BWAPI and Java processes. The code in `src/java/jnibwapi` encapsulates the C++ code and tries to replicate the BWAPI interface.
+
 JNIBWAPI assumes you have the following components :
 
   * Starcraft (v. 1.16.1)
   * Windows (Mac is unsupported)
-  * Visual Studio 2008 (the dll requires Platform Toolset v90) - this is *not required* if you do not intend to work with the C++ code
+  * Visual Studio 2008 (the dll requires Platform Toolset v90) - *not required* if you are not changing the C++ code
   * Java 1.7 (32-bit recommended)
   * BWAPI 3.7.4 ([https://code.google.com/p/bwapi/downloads/list available here])
   * Chaoslauncher (included with BWAPI)
@@ -23,13 +25,15 @@ The BWAPI installation guide is aimed predominantly at those intending to compil
   # Download BWAPI, extract files from zip
   # Follow the BWAPI Build Instruction steps in README in the BWAPI files
     * Note: If you do not have Visual Studio 2008 installed, you must run `vcredist_x86.exe` (included in the BWAPI files)
-  # Edit `<Starcraft dir>/bwapi-data/bwapi.ini` - change line 8 "`ai     = bwapi-data\AI\ExampleAIModule.dll, bwapi-data\AI\TestAIModule.dll`" to read "`ai     = NULL`". Remove line 9.
+  # Edit `<Starcraft dir>/bwapi-data/bwapi.ini`:
+    * Change line 8 "`ai = bwapi-data\AI\ExampleAIModule.dll, bwapi-data\AI\TestAIModule.dll`" to "`ai = NULL`".
+    * Remove line 9.
   # Extract JNIBWAPI files.
-  # In the `release` directory of JNIBWAPI, right-click "run.bat" and select Run as Administrator
-    * Expected output "Loaded client bridge library." "Bridge: BWAPI Client launched!" "Bridge: Connecting..."
+  # In the `release` directory of JNIBWAPI, right-click `run.bat` and select `Run as Administrator`
+    * Expected output: "Loaded client bridge library." "Bridge: BWAPI Client launched!" "Bridge: Connecting..."
   # Start Chaoslauncher as an Administrator and activate the BWAPI Release plugin
   # Start the Starcraft game
-    * Expected output "Connected" "Bridge: waiting to enter match..."
+    * Expected output: "Connected" "Bridge: waiting to enter match..."
   # Begin a custom game as Zerg (the race the example AI is designed to play)
   # The JNIBWAPI player should take control of the player's units and begin ordering units
     * Note: the game will freeze for one or two minutes the first time a new map is played as [https://code.google.com/p/bwta/ BWTA] has to analyze the map
@@ -43,7 +47,7 @@ _Assuming that you have followed the previous guide, you should have an extracte
   # Run Eclipse as an Administrator, create a New Java Project, uncheck "Use default location" and set the location to be your JNIBWAPI folder. It should be able to determine the rest for itself. Click Finish.
   # Expand the project and look in the package `jnibwapi`. Right click `ExampleAIClient.java`, select Run As, then select Java application.
   # Ensure that the behaviour is as in the previous guide (you have just completed the equivalent of Step 7)
-  # You are now ready to duplicate `ExampleAIClient.java` to your own class and begin development.
+  # You are now ready to duplicate `ExampleAIClient.java` to your own class and begin development. Take a look at the [documentation] to find the available commands.
 
 Note that when using the provided .dll, certain files need to remain in the expected location. In particular `BWAPIEventListener.java` and `JNIBWAPI.java` should be left in the `jnibwapi` package. The core of your AI (equivalent to `ExampleAIClient.java`) can be anywhere, and is recommended to be outside the `jnibwapi` package.
 
